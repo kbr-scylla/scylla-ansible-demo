@@ -1,0 +1,21 @@
+- name: Setup Scylla
+  hosts: raft-demo
+  connection: local
+  tasks:
+    - name: create folders
+      ansible.builtin.file:
+        path: /home/kostja/demo/{{inventory_hostname}}
+        state: directory
+        path: /home/kostja/demo/{{inventory_hostname}}/conf
+        state: directory
+        path: /home/kostja/demo/{{inventory_hostname}}/commitlog
+        state: directory
+        path: /home/kostja/demo/{{inventory_hostname}}/data
+        state: directory
+        path: /home/kostja/demo/{{inventory_hostname}}/hints
+        state: directory
+        path: /home/kostja/demo/{{inventory_hostname}}/view_hints
+        state: directory
+    - name: report status 
+      debug:
+        msg: "Done setting up {{ inventory_hostname }}." 
