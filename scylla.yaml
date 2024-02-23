@@ -26,7 +26,7 @@ num_tokens: 16
 # data, hints, view_hints and saved_caches subdirectories. All of these
 # subs can be overridden by the respective options below.
 # If unset, the value defaults to /var/lib/scylla
-# workdir: /var/lib/scylla
+workdir: {{scylla_home}}
 
 # Directory where Scylla should store data on disk.
 # data_file_directories:
@@ -619,3 +619,6 @@ maintenance_socket: ignore
 # replication_strategy_warn_list:
 #  - SimpleStrategy
 # replication_strategy_fail_list:
+skip_wait_for_gossip_to_settle: 0
+experimental_features:
+  - consistent-topology-changes

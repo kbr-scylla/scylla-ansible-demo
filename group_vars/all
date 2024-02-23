@@ -1,0 +1,5 @@
+--- 
+# 
+
+scylla_home: /home/kostja/demo/{{inventory_hostname}}
+scylla_bin: /home/kostja/work/scylla/scylla/build/dev

@@ -1,8 +1,8 @@
 - name: Tear down Scylla
-  hosts: raft-demo
+  hosts: raft_demo
   connection: local
   tasks:
     - name: Delete folders
       ansible.builtin.file:
-        path: /home/kostja/demo/{{inventory_hostname}}
+        path: "{{scylla_home}}"
         state: absent

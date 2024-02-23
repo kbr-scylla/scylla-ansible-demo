@@ -4,28 +4,33 @@
   tasks:
     - name: create configuration folder
       ansible.builtin.file:
-        path: /home/kostja/demo/{{inventory_hostname}}/conf
+        path: "{{scylla_home}}/conf"
         state: directory
     - name: create configuration file
       ansible.builtin.template:
         src: scylla.yaml
-        dest: /home/kostja/demo/{{inventory_hostname}}/conf/scylla.yaml
+        dest: "{{scylla_home}}/conf/scylla.yaml"
     - name: create commitlog folder
       ansible.builtin.file:
-        path: /home/kostja/demo/{{inventory_hostname}}/commitlog
+        path: "{{scylla_home}}/commitlog"
         state: directory
     - name: create data folder
       ansible.builtin.file:
-        path: /home/kostja/demo/{{inventory_hostname}}/data
+        path: "{{scylla_home}}/data"
         state: directory
     - name: create hints folder
       ansible.builtin.file:
-        path: /home/kostja/demo/{{inventory_hostname}}/hints
+        path: "{{scylla_home}}/hints"
         state: directory
     - name: create view_hints folder
       ansible.builtin.file:
-        path: /home/kostja/demo/{{inventory_hostname}}/view_hints
+        path: "{{scylla_home}}/view_hints"
         state: directory
+    - name: copy start script
+      ansible.builtin.template:
+        src: start.sh
+        dest: "{{scylla_home}}"
+        mode: a+x
     - name: report status
       debug:
         msg: "Done setting up {{ inventory_hostname }}."
