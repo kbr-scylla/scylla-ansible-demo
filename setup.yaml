@@ -1,19 +1,25 @@
 - name: Setup Scylla
-  hosts: raft-demo
+  hosts: raft_demo
   connection: local
   tasks:
-    - name: create folders
+    - name: create configuration folder
       ansible.builtin.file:
-        path: /home/kostja/demo/{{inventory_hostname}}
-        state: directory
         path: /home/kostja/demo/{{inventory_hostname}}/conf
         state: directory
+    - name: create commitlog folder
+      ansible.builtin.file:
         path: /home/kostja/demo/{{inventory_hostname}}/commitlog
         state: directory
+    - name: create data folder 
+      ansible.builtin.file:
         path: /home/kostja/demo/{{inventory_hostname}}/data
         state: directory
+    - name: create hints folder
+      ansible.builtin.file:
         path: /home/kostja/demo/{{inventory_hostname}}/hints
         state: directory
+    - name: create view_hints folder
+      ansible.builtin.file:
         path: /home/kostja/demo/{{inventory_hostname}}/view_hints
         state: directory
     - name: report status 
