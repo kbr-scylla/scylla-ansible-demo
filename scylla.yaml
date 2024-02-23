@@ -228,7 +228,7 @@ rpc_port: 9160
 api_port: 10000
 
 # IP for the REST API server
-api_address: {{inventory_hostname}
+api_address: {{inventory_hostname}}
 
 # Log WARN on any batch size exceeding this value. 128 kiB per batch by default.
 # Caution should be taken on increasing the size of this threshold as it can lead to node instability.

@@ -6,11 +6,15 @@
       ansible.builtin.file:
         path: /home/kostja/demo/{{inventory_hostname}}/conf
         state: directory
+    - name: create configuration file
+      ansible.builtin.template:
+        src: scylla.yaml
+        dest: /home/kostja/demo/{{inventory_hostname}}/conf/scylla.yaml
     - name: create commitlog folder
       ansible.builtin.file:
         path: /home/kostja/demo/{{inventory_hostname}}/commitlog
         state: directory
-    - name: create data folder 
+    - name: create data folder
       ansible.builtin.file:
         path: /home/kostja/demo/{{inventory_hostname}}/data
         state: directory
@@ -22,6 +26,6 @@
       ansible.builtin.file:
         path: /home/kostja/demo/{{inventory_hostname}}/view_hints
         state: directory
-    - name: report status 
+    - name: report status
       debug:
-        msg: "Done setting up {{ inventory_hostname }}." 
+        msg: "Done setting up {{ inventory_hostname }}."
