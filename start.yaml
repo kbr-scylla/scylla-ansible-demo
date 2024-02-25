@@ -1,0 +1,6 @@
+- name: Start Scylla cluster
+  hosts: raft_demo
+  connection: local
+  tasks:
+    - name: start cluster
+      shell: cd {{scylla_home}}; nohup ./start.sh > ./scylla.log 2>&1 &
