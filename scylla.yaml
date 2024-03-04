@@ -620,5 +620,5 @@ maintenance_socket: ignore
 #  - SimpleStrategy
 # replication_strategy_fail_list:
 skip_wait_for_gossip_to_settle: 0
-experimental_features:
-  - consistent-topology-changes
+  #experimental_features:
+  #  - consistent-topology-changes
